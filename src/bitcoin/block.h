@@ -68,6 +68,10 @@ public:
     // memory only
     mutable bool fChecked;
 
+    // Memory-only flags for caching expensive checks
+    mutable bool m_checked_witness_commitment{false}; // CheckWitnessCommitment()
+    mutable bool m_checked_merkle_root{false};        // CheckMerkleRoot()
+
     CBlock() noexcept { SetNull(); }
 
     CBlock(const CBlockHeader &header) {
